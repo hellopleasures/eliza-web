@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* Container for the chat app */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #121212; /* Dark background */
+  color: #ffffff; /* Light text */
+  font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+h1 {
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  color: #76c7c0; /* Light teal color */
+}
+
+/* Chat box container */
+.chat-box {
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  border: 1px solid #444; /* Subtle border */
+  padding: 15px;
+  border-radius: 10px;
+  overflow-y: auto;
+  background-color: #1e1e1e; /* Slightly lighter background */
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
+}
+
+/* Message styles */
+.message {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 80%;
+}
+
+.message.user {
+  align-self: flex-end;
+  background-color: #4caf50; /* Green for user */
+  color: #fff;
+  text-align: right;
+}
+
+.message.agent {
+  align-self: flex-start;
+  background-color: #333; /* Darker grey for agent */
+  color: #fff;
+}
+
+/* Input form */
+.message-input {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  gap: 10px;
+}
+
+.message-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #1e1e1e;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.message-input input::placeholder {
+  color: #888; /* Subtle placeholder color */
+}
+
+.message-input button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #76c7c0; /* Teal button */
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.message-input button:hover {
+  background-color: #63aea8; /* Slightly darker teal on hover */
+}
+
+select {
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #1e1e1e;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+
+/* Chat Box Container */
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  border: 1px solid #444;
+  padding: 15px;
+  border-radius: 10px;
+  overflow-y: auto;
+  background-color: #1e1e1e;
+  margin-bottom: 15px;
+}
+
+/* Message Bubble */
+.message {
+  display: inline-block;
+  max-width: 70%;
+  padding: 10px 15px;
+  font-size: 1rem;
+  line-height: 1.5;
+  word-wrap: break-word;
+  border-radius: 15px;
+}
+
+/* User Message (Aligned Right, Green Bubble) */
+.message.user {
+  align-self: flex-end;
+  background-color: #4caf50; /* Green for user */
+  color: #fff;
+  text-align: right;
+  border-top-right-radius: 0;
+}
+
+/* Agent Message (Aligned Left, Grey Bubble) */
+.message.agent {
+  align-self: flex-start;
+  background-color: #333; /* Grey for agent */
+  color: #fff;
+  text-align: left;
+  border-top-left-radius: 0;
+}
+/* Bot Message (Grey Bubble, Aligned Left) */
+.message.bot {
+  align-self: flex-start;
+  background-color: #fff; /* Grey for bot */
+  color: #fff;
+  text-align: left;
+  border-top-left-radius: 0;
+}
+/* Ensure bot styling overrides conflicts */
+.chat-box .message.bot {
+  align-self: flex-start;
+  background-color: #fff; /* Grey for bot */
+  color: #fff;
+  text-align: left;
+  border-top-left-radius: 0;
+}
